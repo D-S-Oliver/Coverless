@@ -62,5 +62,11 @@
 		<key>value</key>
 		<string>series-books</string>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>Education</string>
+		<key>value</key>
+		<string></string>
+	</dict>
 </array>
 </plist>

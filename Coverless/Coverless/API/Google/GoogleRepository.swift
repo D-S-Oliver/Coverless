@@ -78,7 +78,12 @@ class GoogleRepository {
             if (used) {
                 self.lastCategory[text]?.avaiable.removeFirst()
                 self.lastCategory[text]?.cont += self.books.count
-            } else {
+                print("\nCategoria: \(text) - Faltam: \(self.lastCategory[text]!.avaiable.count)\n")
+            }
+            
+            if (!used || self.lastCategory[text]?.avaiable.count == 0) {
+                print("\n\n\nAcabou \(text): \(self.lastCategory[text]?.cont ?? 0) de \(self.lastCategory[text]?.maxBooks ?? 0)\n\n\n")
+                
                 self.lastCategory[text] = UsedCategory(
                     maxBooks: books.totalItems,
                     avaiable: Array(1...books.totalItems/40).shuffled(),

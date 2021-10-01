@@ -204,7 +204,6 @@ class NYTRepository {
             print(path)
             myDict = NSDictionary(contentsOfFile: path) as? [String:String]
         }
-        print(myDict)
         return myDict!["NewYorkKey"]!
     }
 

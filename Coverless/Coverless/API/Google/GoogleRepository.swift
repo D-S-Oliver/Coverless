@@ -102,15 +102,16 @@ class GoogleRepository {
         - Return: chave da API
     */
     private func getToken() -> String {
+        return "AIzaSyCN2r5ED0n-OeohIezXvWCGzskdhZ61x-E"
         // Verifica se o arquivo existir
-        guard let path = Bundle.main.path(forResource: "Environment", ofType: "plist") else {return ""}
-        
-        let myDict = NSDictionary(contentsOfFile: path) as? [String:String]
-        
-        // Verifica se tem a chave
-        guard let key = myDict?["GoogleKey"] else {return ""}
-        
-        return key
+//        guard let path = Bundle.main.path(forResource: "Environment", ofType: "plist") else {return ""}
+//
+//        let myDict = NSDictionary(contentsOfFile: path) as? [String:String]
+//
+//        // Verifica se tem a chave
+//        guard let key = myDict?["GoogleKey"] else {return ""}
+//        print ("consegui")
+//        return key
     }
 
     
@@ -126,7 +127,7 @@ class GoogleRepository {
         
         var apiUrl = "https://www.googleapis.com/books/v1/volumes?"             // Chamada normal
         apiUrl += "q=\(NYTRepository.fixStringSpaces(text))+subject:"           // Palavra chave + filtro
-        apiUrl += "&startIndex=\(startIndex)&maxResults=40"                     // Momento da lista
+        apiUrl += "&startIndex=\(startIndex*40)&maxResults=40"                     // Momento da lista
         apiUrl += "&printType=books&langRestrict=en"                            // Tipo de resultado
         apiUrl += "&key=\(key)"                                                 // Token
         return apiUrl
